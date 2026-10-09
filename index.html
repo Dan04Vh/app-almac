@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Solo esta página y su script; nada externo. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Te invitaron a BoxtoryCorp">
+<meta property="og:description" content="Abre la invitación para ver tus pedidos y comprobantes desde tu celular.">
+<meta name="theme-color" content="#27804A">
+<title>Invitación BoxtoryCorp</title>
+<style>
+  :root {
+    --fondo: #f6f7f6; --tarjeta: #ffffff; --texto: #161a17; --texto2: #5b625d;
+    --borde: #e3e6e4; --verde: #27804A; --verde-hover: #1f6b3d; --aviso: #8a5a00;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fondo: #101311; --tarjeta: #181c19; --texto: #eef1ef; --texto2: #a3aba5;
+      --borde: #2a302c; --verde: #3a9a5e; --verde-hover: #2f8550; --aviso: #e2b04a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; place-items: center;
+    padding: 24px 16px; background: var(--fondo); color: var(--texto);
+    font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main {
+    width: 100%; max-width: 400px; background: var(--tarjeta);
+    border: 1px solid var(--borde); border-radius: 20px; padding: 32px 24px;
+    text-align: center;
+  }
+  .marca { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; }
+  .marca svg { width: 36px; height: 36px; }
+  .marca span { color: var(--verde); }
+  h1 { font-size: 24px; line-height: 1.25; margin: 28px 0 8px; }
+  p { color: var(--texto2); margin: 0 0 24px; }
+  .boton {
+    display: block; width: 100%; padding: 15px; border: 0; border-radius: 14px;
+    background: var(--verde); color: #fff; font: inherit; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+  }
+  .boton:hover { background: var(--verde-hover); }
+  .boton:focus-visible { outline: 3px solid var(--verde); outline-offset: 3px; }
+  .descarga { margin: 28px 0 0; padding-top: 20px; border-top: 1px solid var(--borde); font-size: 14px; }
+  .descarga a { color: var(--verde); font-weight: 600; }
+  .pequeno { font-size: 13px; margin: 14px 0 0; }
+  .error { color: var(--aviso); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <div class="marca">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M50 6 90 27 77 34 50 20 23 34 10 27z" fill="currentColor"/>
+      <path d="M10 38 46 57v39L10 77z" fill="currentColor"/>
+      <path d="M54 57 90 38v10L54 67z" fill="#4E9A57"/>
+      <path d="M54 71 90 52v10L54 81z" fill="#4E9A57"/>
+      <path d="M54 85 90 66v10L54 95z" fill="#4E9A57"/>
+    </svg>
+    <div>Boxtory<span>Corp</span></div>
+  </div>
+
+  <div id="valida">
+    <h1>Te invitaron a BoxtoryCorp</h1>
+    <p>Abre la invitación en la app para ver tus pedidos y comprobantes desde tu celular.</p>
+    <button type="button" class="boton" id="abrir">Abrir en la app</button>
+    <p class="pequeno">Si no se abre, primero instala la app y vuelve a tocar el enlace de WhatsApp.</p>
+  </div>
+
+  <div id="invalida" hidden>
+    <h1>Enlace incompleto</h1>
+    <p class="error">Este enlace no es válido. Vuelve a tocar el enlace que te enviaron por WhatsApp o pide uno nuevo a tu vendedor.</p>
+  </div>
+
+  <div class="descarga">
+    ¿Aún no tienes la app?<br>
+    <a href="https://play.google.com/store/apps/details?id=com.boxtorycorp.app" rel="noopener noreferrer">Descargar en Google Play</a>
+  </div>
+</main>
+<script src="abrir.js"></script>
+</body>
+</html>
